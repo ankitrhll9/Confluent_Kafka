@@ -30,9 +30,9 @@ def delivery_report(err, msg):
 
     """
     if err is not None:
-        print("Delivery failed for User record {}: {}".format(msg.key(), err))
+        print("Delivery failed for record {}: {}".format(msg.key(), err))
         return
-    print('User record {} successfully produced to {} [{}] at offset {}'.format(
+    print('Record {} successfully produced to {} [{}] at offset {}'.format(
         msg.key(), msg.topic(), msg.partition(), msg.offset()))
 
 # Define Kafka configuration
@@ -75,13 +75,16 @@ producer = SerializingProducer({
 # Load the CSV data into a pandas DataFrame
 df = pd.read_csv('retail_data.csv')
 df = df.fillna('null')
+print(df.head())
 
 # Iterate over DataFrame rows and produce to Kafka
 for index, row in df.iterrows():
     # Create a dictionary from the row values
     value = row.to_dict()
+    print(value)
     # Produce to Kafka
-    producer.produce(topic='retail_data', key=str(index), value=value, on_delivery=delivery_report)
+    producer.produce(topic='retail_data', key=str(index), value=value, on_delivery=delivery_report) 
+    #producer will keep this data in internal buffer, it depends on us that after how much time we want to flush it to the topic
     producer.flush()
     break
 
