@@ -4,7 +4,7 @@ from confluent_kafka.schema_registry import SchemaRegistryClient
 from confluent_kafka.schema_registry.avro import AvroDeserializer
 from confluent_kafka.serialization import StringDeserializer
 
-# comment demo
+
 
 # Define Kafka configuration
 kafka_config = {
