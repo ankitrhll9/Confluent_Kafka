@@ -47,7 +47,7 @@ kafka_config = {
 # Create a Schema Registry client
 schema_registry_client = SchemaRegistryClient({
   'url': 'https://psrc-4yovk.us-east-2.aws.confluent.cloud',
-  'basic.auth.user.info': '{}:{}'.format('BMXG6QQV6S2MFD4N', 'N4/a7Os9kwpDvRF7efynNmqpxjiX9R8JnPM08M7XNVJYtlQcU93rtzZHFj4RTuEn')
+  'basic.auth.user.info': '{}:{}'.format('X2GZBSE2OL4IWFFD', 'NeSBDnM6PPs0zrdylNo0MFNfRE+fCtCe5c+5E61V2HxBymEKVUQFoMxHHiwm3OYu')
 })
 
 # Fetch the latest Avro schema for the value
